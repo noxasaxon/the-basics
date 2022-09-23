@@ -1,2 +1,2 @@
 # the-basics
-learn programming basics, duplicated for multiple languages
+learn (opinionated) programming basics, duplicated for multiple languages
