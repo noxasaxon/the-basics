@@ -6,7 +6,7 @@
 # standard library imports, no installation:
 from ast import Str
 import json, pathlib, urllib3, subprocess
-from os import path, open
+from typing import Any, List
 
 # external dependencies, will throw an error if the libraries aren't installed
 import requests
@@ -14,12 +14,22 @@ import requests
 ###################  PRIMITIVE TYPES  ####################################
 ## Python's "primitive types".
 # Here we are assigning the data on the right into our custom variable on the left.
+# variable_name <- data
 # Assignment lets us store data for usage later, and reduces writing duplicate code.
 an_integer = 3
 a_float = 3.0
 a_string = "this is a string type"
+
 a_list = ["this", "is", "a", "list", "of", "strings", "and", "can", "be", "mutated"]
 a_tuple = ("this", "is", "an", "immutable", "tuple", "of", "strings")
+# you can access list and tuple items by using the 'index' of the item you want.
+# lists and tuples are zero-indexed, meaning their first item is actually item 0
+assert a_list[0] == "this"
+assert a_list[0] == a_tuple[0]
+
+# a dictionary is an object of Key:Value pairs.
+# Keys must be 'hashable' which means they are usually strings.
+# Values can be any type!
 a_dictionary = {
     "key_to_string": "value_a",
     "key_to_integer": 3,
@@ -29,6 +39,8 @@ a_dictionary = {
     "key_to_dict": {"sub_key_A": a_float},
 }
 
+# dictionary Values are accessed using their Key in brackets
+assert a_dictionary["key_to_integer"] == 3
 
 ##########################  FUNCTIONS  #########################################
 ## Functions. Python uses a colon `:` and indented whitespace to show nested blocks
@@ -36,17 +48,33 @@ a_dictionary = {
 # Using a function is also known as "calling" a function.
 
 
-# Defining Functions
+# Defining a function
 def a_function_that_does_nothing():
     pass
 
 
+# Defining a function without type hints
 def sum_untyped(number_1, number_2):
     return number_1 + number_2
 
 
+# Defining a function with type hints
 def sum_typed(number_1: int, number_2: int) -> int:
     return number_1 + number_2
+
+
+# Defining a function with typehints & documentation (called a 'docstring').
+# Docstrings are visible in your IDE by hovering over the function name.
+def head_of_list(a_list: List[Any]) -> Any:
+    """Get the first item in a list, raising an exception if list is empty.\n
+    Args:
+        a_list: list containing any type of data
+    """
+    # here we use the `len` function to get the length of the provided list
+    if len(a_list) > 0:
+        return a_list[0]
+    else:
+        raise Exception("List is empty")
 
 
 # Calling Functions
@@ -67,6 +95,8 @@ assert sum_that_equals_5 == 5
 
 # First we define our class
 class BusinessProcess:
+    """Some documentation about this class"""
+
     # This is a special built-in method, that 'constructs' the class for the first time.
     # By adding our own parameters to the `__init__` method, we can
     # force users to provide required data to create this class
