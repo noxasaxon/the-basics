@@ -5,8 +5,9 @@
 
 # standard library imports, no installation:
 from ast import Str
+from dataclasses import dataclass
 import json, pathlib, urllib3, subprocess
-from typing import Any, List
+from typing import Any, List, Optional
 
 # external dependencies, will throw an error if the libraries aren't installed
 import requests
@@ -27,12 +28,14 @@ a_tuple = ("this", "is", "an", "immutable", "tuple", "of", "strings")
 assert a_list[0] == "this"
 assert a_list[0] == a_tuple[0]
 
+KEY_TO_INTEGER = "key_to_integer"
+
 # a dictionary is an object of Key:Value pairs.
 # Keys must be 'hashable' which means they are usually strings.
 # Values can be any type!
 a_dictionary = {
     "key_to_string": "value_a",
-    "key_to_integer": 3,
+    KEY_TO_INTEGER: 3,
     "key_to_function": requests.get,
     "key_to_class": Str,
     "key_to_list": a_list,
@@ -40,7 +43,9 @@ a_dictionary = {
 }
 
 # dictionary Values are accessed using their Key in brackets
-assert a_dictionary["key_to_integer"] == 3
+assert a_dictionary[KEY_TO_INTEGER] == 3
+assert a_dictionary["key_to_string"] == "value_a"
+
 
 ##########################  FUNCTIONS  #########################################
 ## Functions. Python uses a colon `:` and indented whitespace to show nested blocks
@@ -86,6 +91,9 @@ assert sum_that_equals_3 == 3
 
 sum_that_equals_5 = sum_typed(5, 0)
 assert sum_that_equals_5 == 5
+
+result = head_of_list(a_list)
+assert result == "this"
 
 
 ########################  CLASSES  #######################################
@@ -134,3 +142,60 @@ access_audit_process = BusinessProcess(
 )
 
 assert access_audit_process.hours_per_month() == 4.0
+
+
+# A 'dataclass' is useful to quickly and easily group data together.
+# It automatically defines the __init__() constructor for us!
+@dataclass
+class User:
+    name: str
+    team: str
+    current_access: List["AccessLevel"] = []
+
+
+@dataclass
+class AccessLevel:
+    tool: "Tool"
+    access_role: "str"
+
+
+# classes can also be used to establish a common interface, when each item might have a
+#   a different way to achieve the same outcome.
+@dataclass
+class Tool:
+    "Parent class to define common interface for various tools we will audit."
+    name: str = ""
+    tool_owner: str = ""
+
+    def audit_user(self, user: User) -> AccessLevel:
+        raise NotImplementedError("Implement this in the child class")
+
+
+@dataclass
+class Gsuite(Tool):
+    name = "Gsuite"
+    tool_owner = "IT"
+
+    def audit_user(self, user: User) -> AccessLevel:
+        # do some logic with the GSUITE api
+        return AccessLevel(self, "some_role_name_for_this_user_in_gsuite")
+
+
+@dataclass
+class Slack(Tool):
+    name = "Slack"
+    tool_owner = "IT"
+
+    def audit_user(self, user: User) -> AccessLevel:
+        # do some logic with the SLACK api
+        return AccessLevel(self, "some_role_name_for_this_user_in_slack")
+
+
+tools = [Slack(), Gsuite()]
+
+users = [User("Saxon", "Security")]
+
+for user in users:
+    for tool in tools:
+        audit_result = tool.audit(user)
+        user.current_access.append(audit_result)
