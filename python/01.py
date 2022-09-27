@@ -191,11 +191,15 @@ class Slack(Tool):
         return AccessLevel(self, "some_role_name_for_this_user_in_slack")
 
 
+# instantiate our tools
 tools = [Slack(), Gsuite()]
-
+# instantiate our list of users to audit
 users = [User("Saxon", "Security")]
 
+# for each user, check each tool to see what access they have
 for user in users:
     for tool in tools:
+        # check the user's access for this tool
         audit_result = tool.audit(user)
+        # store the result at the end of this user's `current_access` field list
         user.current_access.append(audit_result)
