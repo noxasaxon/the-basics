@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+        "aaron-bond.better-comments",
+        "serayuzgur.crates",
+        "usernamehw.errorlens",
+        "dbaeumer.vscode-eslint",
+        "oderwat.indent-rainbow",
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-vscode.vscode-typescript-next",
+        "zhuangtongfa.material-theme",
+        "esbenp.prettier-vscode",
+        "rvest.vs-code-prettier-eslint",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "rust-lang.rust-analyzer",
+        "vscode-icons-team.vscode-icons"
+    ]
+}
