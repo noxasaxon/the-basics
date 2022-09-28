@@ -1,4 +1,4 @@
-# the-basics
+# The Basics
 learn (opinionated) programming basics, duplicated for multiple languages
 
 - [Python](./python/setup.md)

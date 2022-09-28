@@ -1,1 +1,1 @@
-# the-basics-go
+# The Basics: Go

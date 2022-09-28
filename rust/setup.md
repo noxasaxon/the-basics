@@ -1,4 +1,4 @@
-# the-basics-rust
+# The Basics: Rust
 
 <img alt="Ferris" src="./rustacean-flat-gesture.svg" width="200"/>
  Ferris, the Rust mascot

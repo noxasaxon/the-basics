@@ -1,4 +1,7 @@
-# the-basics-python
+# The Basics: Python
+
+## What is it?
+Python is a high-level general-purpose programming language that is easy to learn and fast to write. It's great for **prototyping** but is used for everything from **Backend**, **Web Development** (using Django), **DevOps** & **Security Automation** scripts, **Data Science and Analysis**, **Machine Learning** & more.
 
 ## Setup
 
@@ -19,7 +22,7 @@ Python dependencies (3rd-party code we use in our programs) are typically instal
 
 Our repo's dependencies are stored in the [./python/requirements.txt file](./requirements.txt)
 
-```
+```sh
 cd python
 pip install -r requirements.txt
 ```
