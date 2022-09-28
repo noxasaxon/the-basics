@@ -17,6 +17,12 @@ Pyenv is an environment managment tool and the recommended way to install one or
 ### 3. Set Global Python version to latest
 In a terminal, run `pyenv global 3.10.4`
 
+### 4. Install some helpful development dependencies
+`black` is a formatter, `flake8` is a linter.
+```
+pip install black flake8 flake8-bugbear
+```
+
 ### 4. Install this repo's Python dependencies
 Python dependencies (3rd-party code we use in our programs) are typically installed via a tool called `pip`, which is automatically included with Python.
 
