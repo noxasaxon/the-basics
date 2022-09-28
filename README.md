@@ -11,8 +11,10 @@ learn (opinionated) programming basics, duplicated for multiple languages
 ## Prerequisites
 - familiarize yourself with `the command line`
     - [The Odin Project: The Command Line](https://www.theodinproject.com/lessons/foundations-command-line-basics)
-- setup & familiarize yourself with `git`
+- setup & familiarize yourself with `git`, and create a github.com account
     - [The Odin Project: Setting up Git](https://www.theodinproject.com/lessons/foundations-setting-up-git)
 - setup & familiarize yourself with an IDE, like VSCode
     - [intro video](https://youtu.be/ORrELERGIHs?t=103)
     - [download](https://code.visualstudio.com/)
+- `fork` this repo into your github profile
+- `clone` this repo to your local machine
