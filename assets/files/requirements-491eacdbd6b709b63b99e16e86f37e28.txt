@@ -1,0 +1,5 @@
+# This is how you download Python dependencies from the pypi.org package repository
+# `pip install <some_dependency>` is the command for installing a single dependency 
+# `pip install -r <path_to_requirements_file.txt> is how you can install this file's list of dependencies
+
+requests
