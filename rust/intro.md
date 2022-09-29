@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # The Basics: Rust
 
 ![Ferris](rustacean-flat-gesture.svg)
