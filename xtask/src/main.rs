@@ -75,8 +75,20 @@ fn convert_dir_code_to_md(dir_path: PathBuf) -> Result<()> {
                 }
                 .unwrap();
 
+                let mut final_output = format!(
+                    "*This file was auto-generated from `the-basics/{}`* \n",
+                    // entry_path.to_str().unwrap()
+                    entry_path
+                        .strip_prefix(project_root())
+                        .unwrap()
+                        .to_str()
+                        .unwrap()
+                );
+
+                final_output.push_str(&md_string);
+
                 entry_path.set_extension("md");
-                fs::write(entry_path, md_string).expect("Unable to write file");
+                fs::write(entry_path, final_output).expect("Unable to write file");
             }
         }
     }
