@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkthe_basics=self.webpackChunkthe_basics||[]).push([[4499],{7431:e=>{e.exports=JSON.parse('{"permalink":"/the-basics/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
