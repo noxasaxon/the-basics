@@ -6,15 +6,46 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
+  /* --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
   --ifm-color-primary-darkest: #205d3b;
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary-lightest: #3cad6e; */
+  --ifm-color-primary: #ce4676;
+  --ifm-color-primary-dark: #c43467;
+  --ifm-color-primary-darker: #b93161;
+  --ifm-color-primary-darkest: #992850;
+  --ifm-color-primary-light: #d45c86;
+  --ifm-color-primary-lighter: #d7678e;
+  --ifm-color-primary-lightest: #df87a6;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* pagefind stuff*/
+  /* --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: #034ad8;
+  --pagefind-ui-text: #393939;
+  --pagefind-ui-background: #ffffff;
+  --pagefind-ui-border: #eeeeee;
+  --pagefind-ui-tag: #eeeeee;
+  --pagefind-ui-border-width: 2px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-image-border-radius: 8px;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: sans-serif; */
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: #ce4676;
+  --pagefind-ui-text: #393939;
+  --pagefind-ui-background: #bcbbbb;
+  --pagefind-ui-border: #343434;
+  --pagefind-ui-tag: #eeeeee;
+  --pagefind-ui-border-width: 2px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-image-border-radius: 8px;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: sans-serif;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */

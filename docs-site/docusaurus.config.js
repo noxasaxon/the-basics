@@ -8,8 +8,8 @@ const path = require('path');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-	title: 'My Site',
-	tagline: 'Dinosaurs are cool',
+	title: 'The Basics',
+	tagline: 'Multi-Language Cookbook & Training Portal',
 	url: 'https://noxasaxon.github.io',
 	baseUrl: '/the-basics/',
 	onBrokenLinks: 'throw',
@@ -28,6 +28,15 @@ const config = {
 		defaultLocale: 'en',
 		locales: ['en']
 	},
+	// themes: ['@docusaurus/theme-search-algolia'],
+	// themeConfig: { algolia: {} },
+
+	scripts: [
+		{ src: '/the-basics/_pagefind/pagefind-ui.js', type: 'text/javascript' },
+		{ src: '/the-basics/assets/js/pagefind_script.js', type: 'text/javascript' }
+	],
+
+	stylesheets: ['/the-basics/_pagefind/pagefind-ui.css'],
 
 	presets: [
 		[
@@ -51,6 +60,12 @@ const config = {
 				}
 			})
 		]
+		// [
+		// 	require.resolve('@cmfcmf/docusaurus-search-local'),
+		// 	{
+		// 		// Options here
+		// 	}
+		// ]
 	],
 
 	themeConfig:
@@ -60,7 +75,7 @@ const config = {
 				title: 'The Basics',
 				logo: {
 					alt: 'My Site Logo',
-					src: 'img/logo.svg'
+					src: 'img/docusaurus.png'
 				},
 				items: [
 					// {
@@ -70,6 +85,13 @@ const config = {
 					// 	label: 'Tutorial'
 					// },
 					// { to: '/blog', label: 'Blog', position: 'left' },
+					{
+						type: 'doc',
+						docsPluginId: 'cookbook',
+						docId: 'intro',
+						position: 'left',
+						label: 'Cookbook'
+					},
 					{
 						type: 'doc',
 						docsPluginId: 'python',
@@ -102,6 +124,10 @@ const config = {
 						href: 'https://github.com/noxasaxon/the-basics',
 						label: 'GitHub',
 						position: 'right'
+					},
+					{
+						type: 'search',
+						position: 'right'
 					}
 				]
 			},
@@ -112,25 +138,25 @@ const config = {
 						title: 'Docs',
 						items: [
 							{
-								label: 'Tutorial',
-								to: '/docs/tutorial/intro'
+								label: 'Cookbook',
+								to: '/cookbook/intro'
 							}
+							// {
+							// 	label: 'Tutorial',
+							// 	to: '/docs/tutorial/intro'
+							// }
 						]
 					},
 					{
 						title: 'Community',
 						items: [
 							{
-								label: 'Stack Overflow',
-								href: 'https://stackoverflow.com/questions/tagged/docusaurus'
-							},
-							{
-								label: 'Discord',
-								href: 'https://discordapp.com/invite/docusaurus'
+								label: 'Github Discussions',
+								href: 'https://github.com/noxasaxon/the-basics/discussions'
 							},
 							{
 								label: 'Twitter',
-								href: 'https://twitter.com/docusaurus'
+								href: 'https://twitter.com/noxasaxon'
 							}
 						]
 					},
@@ -152,9 +178,11 @@ const config = {
 			},
 			prism: {
 				theme: lightCodeTheme,
-				darkTheme: darkCodeTheme
+				darkTheme: darkCodeTheme,
+				additionalLanguages: ['rust']
 			}
 		}),
+
 	plugins: [
 		// [
 		// 	'docusaurus-plugin-module-alias',
@@ -164,6 +192,15 @@ const config = {
 		// 		}
 		// 	}
 		// ],
+		[
+			'@docusaurus/plugin-content-docs',
+			{
+				id: 'cookbook',
+				path: '../cookbook',
+				routeBasePath: '/cookbook',
+				sidebarPath: require.resolve('./sidebars.js')
+			}
+		],
 		[
 			'@docusaurus/plugin-content-docs',
 			{
@@ -200,6 +237,19 @@ const config = {
 				sidebarPath: require.resolve('./sidebars.js')
 			}
 		]
+
+		// [
+		// 	'docusaurus-plugin-remote-content',
+		// 	{
+		// 		// options here
+		// 		name: 'some-content', // used by CLI, must be path safe
+		// 		sourceBaseUrl:
+		// 			'https://raw.githubusercontent.com/rust-lang-nursery/rust-cookbook/master/src/', // the base url for the markdown (gets prepended to all of the documents when fetching)
+		// 		outDir: '../cookbook/nursery', // the base directory to output to.
+		// 		// documents: ['my-file.md', 'README.md'] // the file names to download
+		// 		documents: ['file/dir/duplicate-name.md']
+		// 	}
+		// ]
 	]
 };
 

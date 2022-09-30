@@ -1,0 +1,7 @@
+# lets us use xtask from the root directory
+# `cargo run <xtask-cmd>`
+
+[workspace]
+members = [
+    "xtask"
+]

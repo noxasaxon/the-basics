@@ -6,15 +6,21 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
+    "postbuild": "npm run pagefind && npm run move-pagefind-script-to-assets",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
+    "preserve": "npm run build",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "deploy-github": "yarn build && gh-pages -d build"
+    "pagefind": "npx pagefind --source build --bundle-dir _pagefind",
+    "move-pagefind-script-to-assets": "cp build/pagefind_script.js build/assets/js",
+    "predeploy-github": "npm run build",
+    "deploy-github": "gh-pages -d build -t"
   },
   "dependencies": {
+    "@cmfcmf/docusaurus-search-local": "^0.11.0",
     "@docusaurus/core": "2.1.0",
     "@docusaurus/preset-classic": "2.1.0",
     "@mdx-js/react": "^1.6.22",
@@ -25,7 +31,8 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.1.0",
-    "docusaurus-plugin-module-alias": "^0.0.2"
+    "docusaurus-plugin-module-alias": "^0.0.2",
+    "docusaurus-plugin-remote-content": "^3.1.0"
   },
   "browserslist": {
     "production": [
